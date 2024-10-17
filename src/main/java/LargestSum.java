@@ -1,5 +1,6 @@
 
 import java.util.List;
+import java.util.Collections;
 
 public class LargestSum {
     /**
@@ -10,6 +11,19 @@ public class LargestSum {
      * @return the largest possible sum of separate numbers from nums.
      */
     public int bigSum(List<Integer> nums){
-        return 0;
+        if (nums == null || nums.size() < 2) {
+            throw new IllegalArgumentException("List must contain at least two numbers.");
+        }
+
+        // Sort the list in descending order
+        Collections.sort(nums, Collections.reverseOrder());
+
+        // Get the two largest numbers
+        int max1 = nums.get(0);
+        int max2 = nums.get(1);
+
+        // Return their sum
+        return max1 + max2;
+        
     }
 }
